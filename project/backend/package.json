@@ -1,11 +1,9 @@
 {
   "name": "starter",
-  "private": true,
+  "private": true, 
   "scripts": {
     "build": "nest build",
-    "start": "npx prisma migrate deploy && npx prisma generate && nest start",
-		"db": "docker-compose up --build -d",
-    "start:dev": "nest start --watch",
+    "dev": " docker compose up --build -d && npx prisma migrate deploy && npx prisma generate && nest start",
     "start:prod": "node dist/main",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
