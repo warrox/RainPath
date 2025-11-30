@@ -1,0 +1,16 @@
+services:
+  db:
+    build: ./db
+    container_name: postgres_db_1
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: RainPath
+      POSTGRES_PASSWORD: gTEuRqx5mFdknnjR
+      POSTGRES_DB: Rp_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

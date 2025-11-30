@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Case {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  samples   Sample[]
+
+  @@map("cases")
+}
+
+model Sample {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  caseId    Int      @map("case_id")
+  case      Case     @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  blocks    Block[]
+
+  @@index([caseId])
+  @@map("samples")
+}
+
+model Block {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  sampleId  Int      @map("sample_id")
+  sample    Sample   @relation(fields: [sampleId], references: [id], onDelete: Cascade)
+  slides    Slide[]
+
+  @@index([sampleId])
+  @@map("blocks")
+}
+
+model Slide {
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+  coloration String
+  blockId    Int      @map("block_id")
+  block      Block    @relation(fields: [blockId], references: [id], onDelete: Cascade)
+
+  @@index([blockId])
+  @@map("slides")
+}
