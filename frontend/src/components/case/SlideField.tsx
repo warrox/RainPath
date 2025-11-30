@@ -35,7 +35,7 @@ export function SlideField({
           type="text"
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          placeholder="e.g., HE, PAS"
+          placeholder="e.g., HES, PAS"
           required
         />
       </div>
