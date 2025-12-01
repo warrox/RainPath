@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Case {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(cuid())
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   samples   Sample[]
@@ -17,7 +17,7 @@ model Case {
 }
 
 model Sample {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(cuid())
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   caseId    Int      @map("case_id")
@@ -29,7 +29,7 @@ model Sample {
 }
 
 model Block {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(cuid())
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   sampleId  Int      @map("sample_id")
@@ -41,7 +41,7 @@ model Block {
 }
 
 model Slide {
-  id         Int      @id @default(autoincrement())
+  id         String   @id @default(cuid())
   createdAt  DateTime @default(now()) @map("created_at")
   updatedAt  DateTime @updatedAt @map("updated_at")
   coloration String

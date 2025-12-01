@@ -9,7 +9,7 @@ interface BlockCardProps {
   slides: Slide[];
 }
 
-export function BlockCard({ blockIndex, slides }: BlockCardProps) {
+export function BlockCard({ blockId, blockIndex, slides }: BlockCardProps) {
   return (
     <Card className="bg-rainpath-gray-50 hover:border-rainpath-primary transition">
       <CardHeader>
@@ -17,6 +17,7 @@ export function BlockCard({ blockIndex, slides }: BlockCardProps) {
           <h3 className="font-semibold text-rainpath-text">
             Block {getBlockLabel(blockIndex)}
           </h3>
+          <span className='text-xs text-rainpath-gray-500'> ID: {blockId}</span>
         </div>
       </CardHeader>
       <CardContent className="space-y-2">

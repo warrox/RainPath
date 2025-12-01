@@ -13,6 +13,9 @@ export function SpecimenCard({ sample, specimenIndex }: SpecimenCardProps) {
       <CardHeader>
         <CardTitle className="text-2xl">
           Specimen #{specimenIndex + 1}
+          <span className="text-sm font-normal text-rainpath-gray-500 ml-2">
+            (ID: {sample.id})
+          </span>
         </CardTitle>
         <div className="text-sm text-rainpath-gray-600">
           {sample.blocks.length} block{sample.blocks.length !== 1 ? 's' : ''}

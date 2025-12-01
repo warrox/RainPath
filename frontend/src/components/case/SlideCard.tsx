@@ -7,7 +7,7 @@ interface SlideCardProps {
   coloration: string;
 }
 
-export function SlideCard({ slideId, slideIndex, coloration }: SlideCardProps) {
+export function SlideCard({ slideIndex, coloration }: SlideCardProps) {
   return (
     <Card className="hover:border-rainpath-primary transition">
       <CardContent className="p-3">
@@ -19,9 +19,6 @@ export function SlideCard({ slideId, slideIndex, coloration }: SlideCardProps) {
             <div className="text-sm text-rainpath-gray-600 mt-1">
               <Badge>{coloration}</Badge>
             </div>
-          </div>
-          <div className="text-xs text-rainpath-gray-500">
-            #{slideId}
           </div>
         </div>
       </CardContent>

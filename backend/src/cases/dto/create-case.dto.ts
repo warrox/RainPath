@@ -34,7 +34,7 @@ export class CreateSampleDto {
 
 export class CreateCaseDto {
   @IsOptional()
-  id?: string | number;
+  id?: string;
 
   @IsArray()
   @ValidateNested({ each: true })
